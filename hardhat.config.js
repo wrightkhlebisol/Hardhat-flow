@@ -1,4 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
+const privKey = process.env.PRIV_KEY;
+const project_id = process.env.PROJECT_ID;
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -24,6 +26,10 @@ module.exports = {
   networks: {
     hardhat: {
       chainId: 1337
+    },
+    ropsten: {
+      url: `https://ropsten.infura.io/v3/${project_id}`,
+      accounts: [`0x${privKey}`]
     }
   }
 };
